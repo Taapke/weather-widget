@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { WeatherService } from './services/weather.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ForecastDialogComponent } from './components/forecast-dialog/forecast-dialog.component';
+import { Weather } from './interfaces/weather';
 
 @Component({
   selector: 'app-root',
@@ -20,10 +21,12 @@ export class AppComponent {
 
   openForecastDialog(): void {
     this.weatherService
-      .getCurrentWeatherForLocation({ long: 42.3478, lat: -71.0466 })
-      .subscribe((data: any[]) => {
+      // While testing use testWeather method instead of 
+      // .getCurrentWeatherForLocation({ long: 42.3478, lat: -71.0466 })
+      .getTestWeather()
+      .subscribe((data: Weather) => {
         const dialogRef = this.dialog.open(ForecastDialogComponent, {
-          data: { weather: data },
+          data,
         });
 
         dialogRef.afterClosed().subscribe((result) => {
