@@ -12,13 +12,12 @@ import { Weather } from '../interfaces/weather';
 export class WeatherService {
 
   private weatherUrl = environment.weatherUrl;
-  private key = environment.weatherApiKey;
-  private key2 = environment.weatherApiKey2;
+  private key = environment.weatherApiKey2;
 
   constructor(private http: HttpClient) {}
 
   getCurrentWeatherForLocation(location: Location): Observable<any>{
-    return this.http.get<any[]>(`${this.weatherUrl}location=${location.lat.toString()},${location.long.toString()}&apikey=${this.key2}`).pipe(
+    return this.http.get<any[]>(`${this.weatherUrl}location=${location.lat.toString()},${location.long.toString()}&apikey=${this.key}`).pipe(
       map((data) => this.mapToWeather(data))
     );
   }
