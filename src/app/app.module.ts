@@ -9,18 +9,22 @@ import { ForecastDialogComponent } from './components/forecast-dialog/forecast-d
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { SvgIconComponent } from './svg-icon/svg-icon.component';
+import { MapComponent } from './map/map.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
     AppComponent, 
     ForecastDialogComponent, 
-    SvgIconComponent],
+    SvgIconComponent,
+    MapComponent],
   imports: [
     BrowserModule, 
     AppRoutingModule, 
     HttpClientModule, 
     MatDialogModule,
     MatIconModule,
+    LeafletModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
