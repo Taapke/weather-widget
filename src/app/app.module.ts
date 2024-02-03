@@ -8,8 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ForecastDialogComponent } from './components/forecast-dialog/forecast-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { SvgIconComponent } from './svg-icon/svg-icon.component';
-import { MapComponent } from './map/map.component';
+import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
+import { MapComponent } from './components/map/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
