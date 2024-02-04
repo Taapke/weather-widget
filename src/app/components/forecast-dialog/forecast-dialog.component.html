@@ -1,12 +1,18 @@
-<h2 mat-dialog-title>Weather for location: {{weather.location.lat | number: '1.0-2'}}, {{weather.location.lng | number: '1.0-2'}}</h2>
+<h2 mat-dialog-title>Weather for location: {{ weather.location.lat | number : "1.0-2" }},{{ weather.location.lng | number : "1.0-2" }}
+</h2>
 <mat-dialog-content>
-    <h3>{{weather.date | date}}</h3>
-    <h3>{{weather.date | date:'h:mm a'}}</h3>
-    <h3>{{weather.temperature}}&deg;C</h3>
-    <h3>Feels like: {{weather.temperatureApparent}}&deg;C</h3>
-    <h3>Humidy: {{weather.humidity}}%</h3>
-    <h3>Windspeed: {{weather.windSpeed}} m/s</h3>
-    <h3>Rain: {{weather.rainIntensity}} mm/hr</h3>
-    <h3>Cloudcover: {{weather.cloudCover}} %</h3>
-    <app-svg-icon [icon]="icon"></app-svg-icon>
+  <div class="content">
+    <div>
+      <h3>Date: {{ weather.date | date : "MMM d, y h:mm a" }}</h3>
+      <h3>Temperature: {{ weather.temperature }}&deg;C</h3>
+      <h3>Feels like: {{ weather.temperatureApparent }}&deg;C</h3>
+      <h3>Humidy: {{ weather.humidity }}%</h3>
+      <h3>Windspeed: {{ weather.windSpeed }} m/s</h3>
+      <h3>Rain: {{ weather.rainIntensity }} mm/hr</h3>
+      <h3>Cloudcover: {{ weather.cloudCover }} %</h3>
+    </div>
+    <div>
+      <app-svg-icon [icon]="icon"></app-svg-icon>
+    </div>
+  </div>
 </mat-dialog-content>

@@ -12,12 +12,12 @@ import { LatLng } from 'leaflet';
 export class WeatherService {
 
   private weatherUrl = environment.weatherUrl;
-  private key = environment.weatherApiKey2;
+  private key = environment.weatherApiKey;
 
   constructor(private http: HttpClient) {}
 
   getCurrentWeatherForLocation(location: LatLng): Observable<any>{
-    return this.http.get<any[]>(`${this.weatherUrl}location=${location.lat.toString()},${location.lng.toString()}&apikey=${this.key}`).pipe(
+    return this.http.get<any[]>(`${this.weatherUrl}location=${location.lat.toString()},${location.lng.toString()}&units=metric&fields&apikey=${this.key}`).pipe(
       map((data) => this.mapToWeather(data))
     );
   }
