@@ -12,7 +12,7 @@ import { Weather } from '../../interfaces/weather';
 import { WeatherService } from '../../services/weather.service';
 import { ForecastDialogComponent } from '../forecast-dialog/forecast-dialog.component';
 
-const LOCATION_NETHERLANDS = { lat: 52.132633, lng: 5.291266 };
+const LOCATION_NETHERLANDS = new LatLng(52.132633, 5.291266);
 
 @Component({
   selector: 'app-map',
@@ -29,7 +29,7 @@ export class MapComponent {
       }),
     ],
     zoom: 5,
-    center: latLng(LOCATION_NETHERLANDS.lat, LOCATION_NETHERLANDS.lng),
+    center: LOCATION_NETHERLANDS
   };
 
   constructor(
@@ -50,7 +50,7 @@ export class MapComponent {
     this.weatherService
       // while testing use test call
       // .getCurrentWeatherForLocation(location)
-      .getTestWeather()
+      .getTestWeather(LOCATION_NETHERLANDS)
       .subscribe((data: Weather) => {
         const dialogRef = this.dialog.open(ForecastDialogComponent, {
           data,

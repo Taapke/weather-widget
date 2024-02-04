@@ -1,3 +1,5 @@
+import { LatLng } from "leaflet";
+
 export interface Weather {
     temperature: number;
     temperatureApparent: number;
@@ -6,4 +8,5 @@ export interface Weather {
     windSpeed: number;
     rainIntensity: number;
     cloudCover: number;
+    location: LatLng;
 }

@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { Location } from '../interfaces/location';
 import { delay, map } from 'rxjs/operators';
 import { Weather } from '../interfaces/weather';
+import { LatLng } from 'leaflet';
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +16,13 @@ export class WeatherService {
 
   constructor(private http: HttpClient) {}
 
-  getCurrentWeatherForLocation(location: Location): Observable<any>{
+  getCurrentWeatherForLocation(location: LatLng): Observable<any>{
     return this.http.get<any[]>(`${this.weatherUrl}location=${location.lat.toString()},${location.lng.toString()}&apikey=${this.key}`).pipe(
       map((data) => this.mapToWeather(data))
     );
   }
 
-  getTestWeather(): Observable<any> {
+  getTestWeather(location: LatLng): Observable<any> {
     const delayTime = 1000;
     const testWeather: Weather =  {
       date: new Date('Sat Feb 03 2024 15:25:00 GMT+0100 (Midden-Europese standaardtijd)'),
@@ -32,6 +32,7 @@ export class WeatherService {
       windSpeed: 50.33,
       rainIntensity: 0,
       cloudCover: 0,
+      location: location
     }
     return of(testWeather).pipe(
       delay(delayTime)
@@ -47,6 +48,7 @@ export class WeatherService {
       windSpeed: data.data.values.windSpeed,
       rainIntensity: data.data.values.rainIntensity,
       cloudCover: data.data.values.cloudCover,
+      location: data.location
     }
     return mappedWeather;
   }
