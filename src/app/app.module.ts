@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 import { MapComponent } from './components/map/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     MatDialogModule,
     MatIconModule,
     LeafletModule,
+    MatButtonModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
