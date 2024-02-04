@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MapComponent } from './map.component';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('MapComponent', () => {
   let component: MapComponent;
@@ -8,7 +10,9 @@ describe('MapComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MapComponent]
+      providers: [HttpClient, HttpHandler],
+      declarations: [MapComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
     
