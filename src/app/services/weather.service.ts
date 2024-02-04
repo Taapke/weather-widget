@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { delay, map } from 'rxjs/operators';
+import { catchError, delay, map } from 'rxjs/operators';
 import { Weather } from '../interfaces/weather';
 import { LatLng } from 'leaflet';
 
@@ -18,7 +18,8 @@ export class WeatherService {
 
   getCurrentWeatherForLocation(location: LatLng): Observable<any>{
     return this.http.get<any[]>(`${this.weatherUrl}location=${location.lat.toString()},${location.lng.toString()}&units=metric&fields&apikey=${this.key}`).pipe(
-      map((data) => this.mapToWeather(data))
+      map((data) => this.mapToWeather(data)),
+      catchError((error: HttpErrorResponse) => this.handleError(error))
     );
   }
 
@@ -37,6 +38,15 @@ export class WeatherService {
     return of(testWeather).pipe(
       delay(delayTime)
     );
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    if (error.status === 404) {
+      console.error('Weather information not found'); 
+    } else {
+      console.error('An error occured:', error.error.message || error.message);
+    }
+    return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
   private mapToWeather(data: any) {

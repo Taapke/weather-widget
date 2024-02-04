@@ -38,8 +38,12 @@ export class MapComponent {
   ) {}
 
   selectLocation(event: LeafletMouseEvent) {
-    this.setMarker(event.latlng);
-    this.openForecastDialog(event.latlng);
+    if (event.latlng) {
+      this.setMarker(event.latlng);
+      this.openForecastDialog(event.latlng);
+    } else {
+      console.error('Location information not found')
+    }
   }
 
   setMarker(location: any) {
