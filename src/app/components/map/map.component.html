@@ -1,4 +1,6 @@
-<div style="height: 300px;"
+<div class="map"
      leaflet 
-     [leafletOptions]="options">
+     (leafletClick)="setMarker($event)"
+     [leafletOptions]="options"
+     [leafletLayers]="layers">
 </div>

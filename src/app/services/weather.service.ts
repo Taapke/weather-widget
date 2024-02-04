@@ -17,7 +17,7 @@ export class WeatherService {
   constructor(private http: HttpClient) {}
 
   getCurrentWeatherForLocation(location: Location): Observable<any>{
-    return this.http.get<any[]>(`${this.weatherUrl}location=${location.lat.toString()},${location.long.toString()}&apikey=${this.key}`).pipe(
+    return this.http.get<any[]>(`${this.weatherUrl}location=${location.lat.toString()},${location.lng.toString()}&apikey=${this.key}`).pipe(
       map((data) => this.mapToWeather(data))
     );
   }
