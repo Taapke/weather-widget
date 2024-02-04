@@ -44,7 +44,7 @@ export class WeatherService {
       temperature: data.data.values.temperature,
       temperatureApparent: data.data.values.temperatureApparent,
       humidity: data.data.values.humidity,
-      windSpeed: data.data.values.windspeed,
+      windSpeed: data.data.values.windSpeed,
       rainIntensity: data.data.values.rainIntensity,
       cloudCover: data.data.values.cloudCover,
     }
