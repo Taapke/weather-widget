@@ -8,8 +8,8 @@ import {
 import { MatIconModule } from '@angular/material/icon';
 import { LatLng } from 'leaflet';
 import { Weather } from '../../interfaces/weather';
-import { SvgIconComponent } from '../weather-icon/weather-icon.component';
-import { ForecastDialogComponent } from './weather-dialog.component';
+import { WeatherIconComponent } from '../weather-icon/weather-icon.component';
+import { WeatherDialogComponent } from './weather-dialog.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 
 const testWeather: Weather = {
@@ -28,13 +28,13 @@ const testWeather: Weather = {
 };
 
 describe('ForecastDialogComponent', () => {
-  let component: ForecastDialogComponent;
-  let fixture: ComponentFixture<ForecastDialogComponent>;
+  let component: WeatherDialogComponent;
+  let fixture: ComponentFixture<WeatherDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MatDialogModule, MatIconModule],
-      declarations: [ForecastDialogComponent, SvgIconComponent],
+      declarations: [WeatherDialogComponent, WeatherIconComponent],
       providers: [
         HttpClient,
         HttpHandler,
@@ -43,7 +43,7 @@ describe('ForecastDialogComponent', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ForecastDialogComponent);
+    fixture = TestBed.createComponent(WeatherDialogComponent);
     component = fixture.componentInstance;
   });
 

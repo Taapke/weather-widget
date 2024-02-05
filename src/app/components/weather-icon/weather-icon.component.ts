@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -7,7 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './weather-icon.component.html',
   styleUrl: './weather-icon.component.scss',
 })
-export class SvgIconComponent implements OnChanges  {
+export class WeatherIconComponent implements OnChanges {
   @Input() icon = '';
 
   constructor(

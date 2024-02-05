@@ -1,6 +1,6 @@
 # WeatherWidget
 
-Welcome to World Wide Weather, an Angular-based application that allows you to explore the current weather conditions by simply clicking on a location on the map. This project was generated with Angular Cli version 17.1.0.
+Welcome to World Wide Weather, an Angular-based weather widget that allows you to explore the current weather conditions by simply clicking on a location on the map. This project was generated with Angular Cli version 17.1.0.
 
 ## Prerequisites
 

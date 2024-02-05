@@ -9,7 +9,7 @@ import {
 } from 'leaflet';
 import { Weather } from '../../interfaces/weather';
 import { WeatherService } from '../../services/weather/weather.service';
-import { ForecastDialogComponent } from '../weather-dialog/weather-dialog.component';
+import { WeatherDialogComponent } from '../weather-dialog/weather-dialog.component';
 
 const LOCATION_NETHERLANDS = new LatLng(52.132633, 5.291266);
 
@@ -52,15 +52,15 @@ export class MapComponent {
   openForecastDialog(location: LatLng): void {
     this.weatherService
       // while testing use test call
-      // .getTestWeather(LOCATION_NETHERLANDS)
-      .getCurrentWeatherForLocation(location)
+      .getTestWeather(LOCATION_NETHERLANDS)
+      // .getCurrentWeatherForLocation(location)
       .subscribe((data: Weather) => {
-        const dialogRef = this.dialog.open(ForecastDialogComponent, {
+        const dialogRef = this.dialog.open(WeatherDialogComponent, {
           data,
         });
 
         dialogRef.afterClosed().subscribe((result) => {
-          console.log('The dialog was closed');
+          this.layers = [];
         });
       });
   }

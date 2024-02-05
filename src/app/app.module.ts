@@ -4,10 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HttpClientModule } from '@angular/common/http';
-import { ForecastDialogComponent } from './components/weather-dialog/weather-dialog.component';
+import { WeatherDialogComponent } from './components/weather-dialog/weather-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { SvgIconComponent } from './components/weather-icon/weather-icon.component';
+import { WeatherIconComponent } from './components/weather-icon/weather-icon.component';
 import { MapComponent } from './components/map/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import {MatButtonModule} from '@angular/material/button';
@@ -15,8 +15,8 @@ import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
-    ForecastDialogComponent,
-    SvgIconComponent,
+    WeatherDialogComponent,
+    WeatherIconComponent,
     MapComponent,
   ],
   imports: [

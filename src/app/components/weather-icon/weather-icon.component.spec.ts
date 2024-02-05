@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SvgIconComponent } from './weather-icon.component';
+import { WeatherIconComponent } from './weather-icon.component';
 import { MatIcon } from '@angular/material/icon';
 
 describe('SvgIconComponent', () => {
-  let component: SvgIconComponent;
-  let fixture: ComponentFixture<SvgIconComponent>;
+  let component: WeatherIconComponent;
+  let fixture: ComponentFixture<WeatherIconComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MatIcon],
-      declarations: [SvgIconComponent]
+      declarations: [WeatherIconComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(SvgIconComponent);
+    fixture = TestBed.createComponent(WeatherIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
