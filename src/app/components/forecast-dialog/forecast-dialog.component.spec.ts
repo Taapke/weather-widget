@@ -10,6 +10,7 @@ import { LatLng } from 'leaflet';
 import { Weather } from '../../interfaces/weather';
 import { SvgIconComponent } from '../svg-icon/svg-icon.component';
 import { ForecastDialogComponent } from './forecast-dialog.component';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 const testWeather: Weather = {
   date: new Date(
@@ -22,9 +23,13 @@ const testWeather: Weather = {
   rainIntensity: 0,
   cloudCover: 0,
   location: new LatLng(52.132633, 5.291266),
+  dayTime: {
+    sunrise: new Date(), 
+    sunset: new Date(),
+  }
 };
 
-describe('ForecastComponent', () => {
+describe('ForecastDialogComponent', () => {
   let component: ForecastDialogComponent;
   let fixture: ComponentFixture<ForecastDialogComponent>;
 
@@ -33,7 +38,9 @@ describe('ForecastComponent', () => {
       imports: [MatDialogModule, MatIconModule],
       declarations: [ForecastDialogComponent, SvgIconComponent],
       providers: [
-        { provide: MAT_DIALOG_DATA, useValue: { testWeather } },
+        HttpClient,
+        HttpHandler,
+        { provide: MAT_DIALOG_DATA, useValue: testWeather },
         { provide: MatDialogRef, useValue: {} },
       ],
     }).compileComponents();
