@@ -7,15 +7,15 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './svg-icon.component.html',
   styleUrl: './svg-icon.component.scss',
 })
-export class SvgIconComponent implements OnChanges {
+export class SvgIconComponent implements OnChanges  {
   @Input() icon = '';
 
   constructor(
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
-  ) {
-  }
-  ngOnChanges(changes: SimpleChanges): void {
+  ) {}
+
+  ngOnChanges(): void {
     if (this.icon) {
       this.matIconRegistry.addSvgIcon(
         this.icon,

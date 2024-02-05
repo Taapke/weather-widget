@@ -1,4 +1,17 @@
 .icon {
     width: 200px;
     height: 200px;
+    stroke: rgb(183, 171, 171);
+
+    &.Sun {
+        fill: rgb(243, 243, 156);
+    }
+
+    &.Cloud-Drizzle, &.Cloud, &.Cloud-Moon, &.Moon{
+        fill: rgb(203, 226, 237);
+    }
+
+    &.Cloud-Sun {
+        fill: rgb(243, 243, 156);
+    }
 }

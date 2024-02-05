@@ -18,6 +18,6 @@ export class ForecastDialogComponent {
     iconService: IconService
   ) {
     this.weather = data;
-    this.icon = iconService.getIconByWeather(this.weather);
+        this.icon = iconService.getIconByWeather(this.weather);
   }
 }

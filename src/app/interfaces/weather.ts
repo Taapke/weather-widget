@@ -1,4 +1,6 @@
 import { LatLng } from "leaflet";
+import { DayTime } from "./dayTime";
+
 
 export interface Weather {
     temperature: number;
@@ -9,4 +11,5 @@ export interface Weather {
     rainIntensity: number;
     cloudCover: number;
     location: LatLng;
+    dayTime: DayTime
 }

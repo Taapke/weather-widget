@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Weather } from '../interfaces/weather';
 import { WeatherIcon } from '../enums/weather-icon';
+import { WeatherService } from './weather.service';
+import { DayTime } from '../interfaces/dayTime';
 
-const FULL_CLOUD_COVERAGE_LIMIT = 0.8;
-const NO_CLOUD_COVERAGE_LIMIT = 0.2;
-const RAIN_INTENSITY_LIMIT = 0.2;
+const FULL_CLOUD_COVERAGE_LIMIT = 80;
+const NO_CLOUD_COVERAGE_LIMIT = 20;
+const RAIN_INTENSITY_LIMIT = 2.5;
 
 @Injectable({
   providedIn: 'root'
 })
 export class IconService {
+
+  constructor(private weatherService: WeatherService) {}
   
   getIconByWeather(weather: Weather): string {
     if (weather.rainIntensity >= RAIN_INTENSITY_LIMIT) {
@@ -19,8 +23,12 @@ export class IconService {
       return WeatherIcon.cloud
     } 
     if (weather.cloudCover <= NO_CLOUD_COVERAGE_LIMIT) {
-      return WeatherIcon.sun
+      return this.isDuringDayTime(weather.date, weather.dayTime) ? WeatherIcon.sun : WeatherIcon.moon
     }
-    return WeatherIcon.cloudSun;
+    return this.isDuringDayTime(weather.date, weather.dayTime) ? WeatherIcon.cloudSun : WeatherIcon.cloudMoon
+  }
+
+  private isDuringDayTime(currentDate: Date, dayTime: DayTime) {
+    return currentDate >= dayTime.sunrise && currentDate <= dayTime.sunset;
   }
 }

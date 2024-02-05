@@ -5,7 +5,6 @@ import {
   Layer,
   LeafletMouseEvent,
   circleMarker,
-  latLng,
   tileLayer,
 } from 'leaflet';
 import { Weather } from '../../interfaces/weather';
@@ -29,7 +28,7 @@ export class MapComponent {
       }),
     ],
     zoom: 5,
-    center: LOCATION_NETHERLANDS
+    center: LOCATION_NETHERLANDS,
   };
 
   constructor(
@@ -42,7 +41,7 @@ export class MapComponent {
       this.setMarker(event.latlng);
       this.openForecastDialog(event.latlng);
     } else {
-      console.error('Location information not found')
+      console.error('Location information not found');
     }
   }
 
@@ -53,8 +52,8 @@ export class MapComponent {
   openForecastDialog(location: LatLng): void {
     this.weatherService
       // while testing use test call
-      // .getCurrentWeatherForLocation(location)
-      .getTestWeather(LOCATION_NETHERLANDS)
+      // .getTestWeather(LOCATION_NETHERLANDS)
+      .getCurrentWeatherForLocation(location)
       .subscribe((data: Weather) => {
         const dialogRef = this.dialog.open(ForecastDialogComponent, {
           data,
