@@ -8,10 +8,13 @@ Make sure you have the following prerequisites:
 - [Node.js](https://nodejs.org/en)
 - [npm](https://www.npmjs.com/)
 
+Install Angular CLI using npm with the following command:
+- `npm install -g @angular/cli`
+
 ## Clone the project and install dependencies
 
-- Run `git clone https://github.com/Taapke/weather-widget.git`.
-- Run `npm install`
+- Run `git clone https://github.com/Taapke/weather-widget.git`
+- Go into the directory and run `npm install`
 
 ## Get API key 
 

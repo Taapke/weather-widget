@@ -62,7 +62,7 @@ export class WeatherService {
   }
 
   private mapToWeather(data: any, dayTime: DayTime): Weather {
-    const values = data.data.values;
+        const values = data.data.values;
     const location = new LatLng(data.location.lat, data.location.lon);
 
     const mappedWeather: Weather = {
@@ -89,7 +89,7 @@ export class WeatherService {
     };
   }
 
-  // While testing, use this test call
+  // While testing, this call can be used to prevent too many requests
   getTestWeather(location: LatLng): Observable<any> {
     const delayTime = 1000;
     const testWeather: Weather = {
