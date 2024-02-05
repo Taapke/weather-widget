@@ -1,12 +1,12 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Weather } from '../../interfaces/weather';
-import { IconService } from '../../services/icon.service';
+import { IconService } from '../../services/icon/icon.service';
 
 @Component({
-  selector: 'app-forecast-dialog',
-  templateUrl: './forecast-dialog.component.html',
-  styleUrl: './forecast-dialog.component.scss',
+  selector: 'app-weather-dialog',
+  templateUrl: './weather-dialog.component.html',
+  styleUrl: './weather-dialog.component.scss',
 })
 export class ForecastDialogComponent {
   weather: Weather;
@@ -18,6 +18,6 @@ export class ForecastDialogComponent {
     iconService: IconService
   ) {
     this.weather = data;
-        this.icon = iconService.getIconByWeather(this.weather);
+    this.icon = iconService.getIconByWeather(this.weather);
   }
 }

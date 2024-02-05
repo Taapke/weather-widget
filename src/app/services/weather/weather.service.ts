@@ -5,11 +5,11 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { catchError, delay, map, switchMap } from 'rxjs/operators';
-import { Weather } from '../interfaces/weather';
+import { Weather } from '../../interfaces/weather';
 import { LatLng } from 'leaflet';
-import { DayTime } from '../interfaces/dayTime';
+import { DayTime } from '../../interfaces/dayTime';
 
 @Injectable({
   providedIn: 'root',
@@ -27,8 +27,7 @@ export class WeatherService {
   getCurrentWeatherForLocation(location: LatLng): Observable<any> {
     const params = this.commonParams
       .set('location', `${location.lat},${location.lng}`)
-      .set('fields', 'temperature,temperatureApparent,humidity,windSpeed,rainIntensity,cloudCover'
-      );
+      .set('fields', 'temperature,temperatureApparent,humidity,windSpeed,rainIntensity,cloudCover');
 
     return this.getDayTimeForLocation(location).pipe(
       switchMap((dayTime: DayTime) =>
@@ -91,7 +90,7 @@ export class WeatherService {
     };
   }
 
-  // While testing use this test call
+  // While testing, use this test call
   getTestWeather(location: LatLng): Observable<any> {
     const delayTime = 1000;
     const testWeather: Weather = {

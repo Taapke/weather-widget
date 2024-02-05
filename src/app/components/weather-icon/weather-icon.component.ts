@@ -3,9 +3,9 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-svg-icon',
-  templateUrl: './svg-icon.component.html',
-  styleUrl: './svg-icon.component.scss',
+  selector: 'app-weather-icon',
+  templateUrl: './weather-icon.component.html',
+  styleUrl: './weather-icon.component.scss',
 })
 export class SvgIconComponent implements OnChanges  {
   @Input() icon = '';

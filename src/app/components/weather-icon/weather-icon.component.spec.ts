@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SvgIconComponent } from './svg-icon.component';
+import { SvgIconComponent } from './weather-icon.component';
 import { MatIcon } from '@angular/material/icon';
 
 describe('SvgIconComponent', () => {

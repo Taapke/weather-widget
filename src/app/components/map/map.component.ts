@@ -8,8 +8,8 @@ import {
   tileLayer,
 } from 'leaflet';
 import { Weather } from '../../interfaces/weather';
-import { WeatherService } from '../../services/weather.service';
-import { ForecastDialogComponent } from '../forecast-dialog/forecast-dialog.component';
+import { WeatherService } from '../../services/weather/weather.service';
+import { ForecastDialogComponent } from '../weather-dialog/weather-dialog.component';
 
 const LOCATION_NETHERLANDS = new LatLng(52.132633, 5.291266);
 
@@ -36,7 +36,7 @@ export class MapComponent {
     public dialog: MatDialog
   ) {}
 
-  selectLocation(event: LeafletMouseEvent) {
+  selectLocation(event: LeafletMouseEvent): void {
     if (event.latlng) {
       this.setMarker(event.latlng);
       this.openForecastDialog(event.latlng);
@@ -45,7 +45,7 @@ export class MapComponent {
     }
   }
 
-  setMarker(location: any) {
+  setMarker(location: LatLng): void {
     this.layers = [circleMarker([location.lat, location.lng], { radius: 10 })];
   }
 

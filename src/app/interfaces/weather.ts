@@ -1,7 +1,6 @@
 import { LatLng } from "leaflet";
 import { DayTime } from "./dayTime";
 
-
 export interface Weather {
     temperature: number;
     temperatureApparent: number;
