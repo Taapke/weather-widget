@@ -1,13 +1,13 @@
-<h2 mat-dialog-title>Weather for location: Lat Long ({{ weather.location.lat | number : "1.0-2" }},{{ weather.location.lng | number : "1.0-2" }})</h2>
+<h2 mat-dialog-title>Weather for location: Lat Long ({{ weather.location.lat | number : "1.0-2" }}, {{ weather.location.lng | number : "1.0-2" }})</h2>
 <mat-dialog-content class="content">
   <div>
-    <h3>Date: {{ weather.date | date : "MMM d, y h:mm a" }}</h3>
-    <h3>Temperature: {{ weather.temperature }} &deg;C</h3>
-    <h3>Feels like: {{ weather.temperatureApparent }} &deg;C</h3>
-    <h3>Humidy: {{ weather.humidity }} %</h3>
-    <h3>Windspeed: {{ weather.windSpeed }} m/s</h3>
-    <h3>Rain: {{ weather.rainIntensity }} mm/hr</h3>
-    <h3>Cloudcover: {{ weather.cloudCover }} %</h3>
+    <p>Date: {{ weather.date | date : "MMM d, y h:mm a" }}</p>
+    <p>Temperature: {{ weather.temperature }} &deg;C</p>
+    <p>Feels like: {{ weather.temperatureApparent }} &deg;C</p>
+    <p>Humidity: {{ weather.humidity }} %</p>
+    <p>Windspeed: {{ weather.windSpeed }} m/s</p>
+    <p>Rain: {{ weather.rainIntensity }} mm/hr</p>
+    <p>Cloudcover: {{ weather.cloudCover }} %</p>
   </div>
   <app-weather-icon [icon]="icon"></app-weather-icon>
 </mat-dialog-content>

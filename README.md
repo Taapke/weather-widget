@@ -5,27 +5,27 @@ Welcome to World Wide Weather, an Angular-based weather widget that allows you t
 ## Prerequisites
 
 Make sure you have the following prerequisites:
-- Node.js: https://nodejs.org/en
-- npm: https://www.npmjs.com/
+- [Node.js](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/)
 
 ## Clone the project and install dependencies
 
-- Run `git clone https://github.com/Taapke/weather-widget.git`
+- Run `git clone https://github.com/Taapke/weather-widget.git`.
 - Run `npm install`
 
 ## Get API key 
 
-- Create an account on `https://www.tomorrow.io/weather-api/` and obtain your API key. Ensure that your API key is kept confidential. Do not expose it publicly or commit it to version control. 
+- Create an account on <https://www.tomorrow.io/weather-api/> and obtain your API key. Ensure that your API key is kept confidential. Do not expose it publicly or commit it to version control. 
 
 ## Add API key to environment file
 
-- Create a new environment file: `src/environments/environment.ts`
-- Copy the contents of the file `src/environments/environment-example.ts` and replace the text `yourAPIkey` with your saved API key
+- Create a new environment file: `src/environments/environment.ts`.
+- Copy the contents of the file `src/environments/environment-example.ts` and replace the text `yourAPIkey` with your saved API key.
 
 ## Run the project
 
-- Run `ng serve`. 
-- Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Run `ng serve`
+- Navigate to <http://localhost:4200/>. The application will automatically reload if you change any of the source files.
 
 ## Build
 
@@ -34,6 +34,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+Run `ng test --n-watch --code-coverage` to generate a coverage report.
 
 
 ## Further help

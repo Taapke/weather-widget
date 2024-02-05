@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -7,7 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './weather-icon.component.html',
   styleUrl: './weather-icon.component.scss',
 })
-export class WeatherIconComponent implements OnChanges {
+export class WeatherIconComponent implements OnInit {
   @Input() icon = '';
 
   constructor(
@@ -15,7 +15,7 @@ export class WeatherIconComponent implements OnChanges {
     private domSanitizer: DomSanitizer,
   ) {}
 
-  ngOnChanges(): void {
+  ngOnInit(): void {
     if (this.icon) {
       this.matIconRegistry.addSvgIcon(
         this.icon,

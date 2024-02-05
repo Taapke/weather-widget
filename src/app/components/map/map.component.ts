@@ -51,9 +51,11 @@ export class MapComponent {
 
   openForecastDialog(location: LatLng): void {
     this.weatherService
-      // while testing use test call
-      .getTestWeather(LOCATION_NETHERLANDS)
-      // .getCurrentWeatherForLocation(location)
+
+      // While testing, use getTestWeather() instead of getCurrentWeatherForLocation() to prevent too many requests
+      // .getTestWeather(LOCATION_NETHERLANDS)
+
+      .getCurrentWeatherForLocation(location)
       .subscribe((data: Weather) => {
         const dialogRef = this.dialog.open(WeatherDialogComponent, {
           data,

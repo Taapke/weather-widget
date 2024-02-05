@@ -17,7 +17,7 @@ import { DayTime } from '../../interfaces/dayTime';
 export class WeatherService {
   private weatherUrl = environment.weatherUrl;
   private forecastUrl = environment.forecastUrl;
-  private key = environment.weatherApiKey2;
+  private key = environment.weatherApiKey;
   private commonParams = new HttpParams()
     .set('units', 'metric')
     .set('apikey', this.key);
@@ -76,7 +76,6 @@ export class WeatherService {
       location,
       dayTime,
     };
-    console.log(mappedWeather);
     return mappedWeather;
   }
 
