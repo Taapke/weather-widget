@@ -23,7 +23,7 @@ Install Angular CLI using npm with the following command:
 ## Add API key to environment file
 
 - Create a new environment file: `src/environments/environment.ts`.
-- Copy the contents of the file `src/environments/environment-example.ts` and replace the text `yourAPIkey` with your saved API key.
+- Navigate to `src/environments/environment.ts` and replace the text `yourAPIkey` with your saved API key. Do not commit this change to version control. 
 
 ## Run the project
 
